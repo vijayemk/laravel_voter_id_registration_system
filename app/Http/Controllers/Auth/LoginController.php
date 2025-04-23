@@ -49,21 +49,18 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        // Log logout event
+        
         Log::info('User Logged Out', [
             'user_id' => auth()->id(),
             'ip_address' => $request->ip(),
             'logout_time' => now(),
         ]);
 
-        // Perform the actual logout
         $this->guard()->logout();
 
-        // Invalidate the session and regenerate the CSRF token
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        // Redirect to home after logout
         return redirect('/');
     }
 
@@ -76,7 +73,6 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        // Log the login event
         Log::info('User Logged In', [
             'user_id' => $user->id,
             'ip_address' => $request->ip(),

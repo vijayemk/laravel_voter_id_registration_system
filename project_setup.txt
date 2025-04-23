@@ -8,17 +8,13 @@ Step 3: Copy the .env file from .env.example
 cp .env.example .env
 
 Step 4: Update the database details
-Edit the .env file and update your database credentials.
+Edit the .env file and update your database credentials and email credentials.
 
 Step 5: Install required dependencies (PHP, Node.js, and npm)
 Make sure PHP, Node.js, and npm are installed on your system. You can install them via the respective installation methods for your platform.
 
 Step 6: Run the following commands:
 composer install
-composer require laravel/framework:^11.9
-composer require laravel/tinker
-composer require laravel/ui
-composer require maatwebsite/excel
 nvm install 20
 nvm use 20
 npm install && npm run dev

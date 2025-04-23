@@ -35,18 +35,19 @@ class Voter extends Model
             $voter->slug = Str::slug($voter->first_name . '-' . $voter->last_name . '-' . Str::random(5));
         });
     }
-
+    // Mutator for first_name
     public function setFirstNameAttribute($value)
     {
         $this->attributes['first_name'] = ucfirst(strtolower($value));
     }
 
-    // Mutator for last_name
+    
     public function setLastNameAttribute($value)
     {
         $this->attributes['last_name'] = ucfirst(strtolower($value));
     }
 
+    // Accessors
     public function getDobAttribute($value)
     {
         return Carbon::parse($value)->format('m/d/Y');
